@@ -13,7 +13,7 @@ This module contains the set of core Matchers to use in your tests
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 payload must beObject()
 ----
@@ -30,7 +30,7 @@ Validates that the value satisfies at least one of the given matchers
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 "A Text" must anyOf(beObject(), beString())
 ----
@@ -45,7 +45,7 @@ Validates that a given value is of type Array
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 [1, 4, 7] must beArray()
 ----
@@ -60,7 +60,7 @@ Validates that the String value is blank
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 "  " must beBlank()
 ----
@@ -75,7 +75,7 @@ Validates that a given value is of type Boolean
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 true must beBoolean()
 ----
@@ -90,7 +90,7 @@ Validates that the value (String, Object or Array) is empty
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 [] must beEmpty()
 ----
@@ -107,7 +107,7 @@ Can be equal to when using the _inclusive_ argument
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 3 must beGreaterThan(2)
 ----
@@ -124,7 +124,7 @@ Can be equal to when using the _inclusive_ argument
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 1 must beLowerThan(2)
 ----
@@ -139,7 +139,7 @@ Validates that a given value is of type Null
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 null must beNull()
 ----
@@ -154,7 +154,7 @@ Validates that a given value is of type Number
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 123 must beNumber()
 ----
@@ -169,7 +169,7 @@ Validates that a given value is of type Object
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 { name : "Lionel", lastName: "Messi"} must beObject()
 ----
@@ -184,7 +184,7 @@ Validates that the value is contained in the given Array
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 1 must beOneOf([1, "A Text", true])
 ----
@@ -199,7 +199,7 @@ Validates that a given value is of type String
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 "A Text" must beString()
 ----
@@ -214,7 +214,7 @@ Validates that the asserted String contains the given String
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 "A Text" must contain("ex")
 ----
@@ -226,7 +226,7 @@ Validates that the asserted Array contains the given value
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 [1, "A Text", true] must contain(1)
 ----
@@ -241,7 +241,7 @@ Validates that each item of the array satisfies the given matcher
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 [1,2,3] must eachItem(beNumber())
 ----
@@ -256,7 +256,7 @@ Validates that the asserted String ends with the given String
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 "A Text" must endWith("xt")
 ----
@@ -271,7 +271,7 @@ Validates that a value is equal to another one
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 (1 + 2) must equalTo(3)
 ----
@@ -288,7 +288,7 @@ The resource file must belong to the classpath
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 { name: "Lionel", lastName: "Messi" } must equalToResource("user.json", "application/json")
 ----
@@ -303,7 +303,7 @@ Validates that at least one item of the array satisfies the given matcher
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 [1, true, "a text"] must haveItem(beNumber())
 ----
@@ -318,7 +318,7 @@ Validates that the Object has the given key
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 { name: "Lionel", lastName: "Messi" } must haveKey("name")
 ----
@@ -333,7 +333,7 @@ Validates that the array has the given size
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 [1, 4, 7] must haveSize(3)
 ----
@@ -348,7 +348,7 @@ Validates that the Object has the given value
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 { name: "Lionel", lastName: "Messi" } must haveValue("Messi")
 ----
@@ -365,7 +365,7 @@ This function allows to assert a value with with a list of Matcher of Expression
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 payload must [
     beObject(),
@@ -382,7 +382,7 @@ This function allows to assert a value with a Matcher of Expressions
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 payload must beObject()
 ----
@@ -397,7 +397,7 @@ Validates that the value doesn't satisfy the given matcher
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 1 must notBe(equalTo(2))
 ----
@@ -412,7 +412,7 @@ Validates that a given value isn't of type Null
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 "A Text" must notBeNull()
 ----
@@ -427,7 +427,7 @@ Validates that the asserted String starts with the given String
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 ---
 "A Text" must startWith("A")
 ----
@@ -452,7 +452,7 @@ Data Type that represents a Matcher to perform assertions
 [source,dataweave,linenums]
 ----
 %dw 2.0
-import dw::tests::Asserts
+import dw::test::Asserts
 
 fun beEqualToOne(): Matcher<Any> =
     (actual) -> do {
